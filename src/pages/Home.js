@@ -4,6 +4,31 @@ import { FiArrowRight, FiTruck, FiShield, FiHeadphones, FiStar } from 'react-ico
 import ProductCard from '../components/ProductCard';
 import { products } from '../data/products';
 
+const s = {
+  hero: { padding: '80px 40px', background: 'radial-gradient(ellipse 60% 50% at 70% 50%, rgba(255,77,0,0.07) 0%, transparent 70%)', minHeight: 440, display: 'flex', alignItems: 'center' },
+  tag: { display: 'inline-block', background: 'rgba(255,77,0,0.1)', border: '1px solid rgba(255,77,0,0.3)', color: '#ff4d00', fontSize: 12, fontFamily: "'Space Mono', monospace", letterSpacing: 1, padding: '5px 12px', borderRadius: 4, marginBottom: 20, textTransform: 'uppercase' },
+  h1: { fontSize: 'clamp(36px, 5vw, 60px)', fontWeight: 800, lineHeight: 1.05, color: '#f0f0f0', margin: '0 0 20px', letterSpacing: -2 },
+  accent: { color: '#ff4d00' },
+  sub: { fontSize: 16, color: '#888', margin: '0 0 32px', lineHeight: 1.7, maxWidth: 440 },
+  btns: { display: 'flex', gap: 12, flexWrap: 'wrap' },
+  btnPrimary: { display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 32px', background: '#ff4d00', color: '#fff', textDecoration: 'none', borderRadius: 8, fontWeight: 700, fontSize: 15 },
+  btnOutline: { display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 32px', border: '1px solid #2a2a2a', color: '#f0f0f0', textDecoration: 'none', borderRadius: 8, fontSize: 15 },
+  statsRow: { display: 'flex', gap: 0, borderBottom: '1px solid #2a2a2a', borderTop: '1px solid #2a2a2a' },
+  statItem: { flex: 1, padding: '28px 40px', display: 'flex', alignItems: 'center', gap: 16, borderRight: '1px solid #2a2a2a' },
+  statIcon: { width: 44, height: 44, background: 'rgba(255,77,0,0.08)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
+  statNum: { display: 'block', fontSize: 22, fontWeight: 800, fontFamily: "'Space Mono', monospace", color: '#f0f0f0' },
+  statLabel: { fontSize: 13, color: '#888' },
+  section: { padding: '60px 40px' },
+  sectionHead: { display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 32 },
+  sectionTitle: { fontSize: 26, fontWeight: 800, color: '#f0f0f0', margin: 0, letterSpacing: -0.5 },
+  seeAll: { fontSize: 14, color: '#ff4d00', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4 },
+  catGrid: { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 },
+  catCard: { background: '#161616', border: '1px solid #2a2a2a', borderRadius: 12, padding: '28px 24px', textDecoration: 'none', transition: 'all 0.2s', display: 'block' },
+  catEmoji: { fontSize: 32, display: 'block', marginBottom: 10 },
+  catName: { fontSize: 16, color: '#f0f0f0', margin: '0 0 4px', fontWeight: 700 },
+  catCount: { fontSize: 13, color: '#888', margin: 0 },
+  grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))', gap: 20 },
+};
 
 const cats = [
   { emoji: '📱', name: 'Смартфоны', count: '2 400+ товаров', slug: 'Смартфоны' },
@@ -20,37 +45,7 @@ const stats = [
 ];
 
 export default function Home({ addToCart, cart, favorites, toggleFavorite }) {
-  const isMobile = window.innerWidth <= 768;
-  const s = {
-  hero: { padding: isMobile ? '50px 20px' : '80px 40px', background: 'radial-gradient(ellipse 60% 50% at 70% 50%, rgba(255,77,0,0.07) 0%, transparent 70%)', minHeight: isMobile ? 320 : 440, display: 'flex', alignItems: 'center' },
-  tag: { display: 'inline-block', background: 'rgba(255,77,0,0.1)', border: '1px solid rgba(255,77,0,0.3)', color: '#ff4d00', fontSize: 12, fontFamily: "'Space Mono', monospace", letterSpacing: 1, padding: '5px 12px', borderRadius: 4, marginBottom: 20, textTransform: 'uppercase' },
-  h1: { fontSize: isMobile ? '38px' : 'clamp(36px, 5vw, 60px)', fontWeight: 800, lineHeight: 1.05, color: '#f0f0f0', margin: '0 0 20px', letterSpacing: -2 },
-  accent: { color: '#ff4d00' },
-  sub: { fontSize: isMobile ? 14 : 16, color: '#888', margin: '0 0 32px', lineHeight: 1.7, maxWidth: 440 },
-  btns: { display: 'flex', gap: 12, flexWrap: 'wrap' },
-  btnPrimary: { display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 32px', background: '#ff4d00', color: '#fff', textDecoration: 'none', borderRadius: 8, fontWeight: 700, fontSize: 15 },
-  btnOutline: { display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 32px', border: '1px solid #2a2a2a', color: '#f0f0f0', textDecoration: 'none', borderRadius: 8, fontSize: 15 },
-  statsRow: { display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)' , borderBottom: '1px solid #2a2a2a', borderTop: '1px solid #2a2a2a' },
-  statItem: { padding: isMobile ? '20px' : '28px 40px', display: 'flex', alignItems: 'center', gap: 16, borderRight: isMobile ? 'none' : '1px solid #2a2a2a', borderBottom: isMobile ? '1px solid #2a2a2a' : 'none' },
-  statIcon: { width: 44, height: 44, background: 'rgba(255,77,0,0.08)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
-  statNum: { display: 'block', fontSize: 22, fontWeight: 800, fontFamily: "'Space Mono', monospace", color: '#f0f0f0' },
-  statLabel: { fontSize: 13, color: '#888' },
-  section: { padding: isMobile ?'40px 20px' : '60px 40px' },
-  sectionHead: { display: 'flex', justifyContent: 'space-between', alignItems: isMobile ? 'flex-start' : 'baseline', flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? 10 : 0, marginBottom: 32 },
-  sectionTitle: { fontSize: 26, fontWeight: 800, color: '#f0f0f0', margin: 0, letterSpacing: -0.5 },
-  seeAll: { fontSize: 14, color: '#ff4d00', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4 },
-  catGrid: {display: 'grid',gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',gap: 16,},
-  catCard: { background: '#161616', border: '1px solid #2a2a2a', borderRadius: 12, padding: '28px 24px', textDecoration: 'none', transition: 'all 0.2s', display: 'block' },
-  catEmoji: { fontSize: 32, display: 'block', marginBottom: 10 },
-  catName: { fontSize: 16, color: '#f0f0f0', margin: '0 0 4px', fontWeight: 700 },
-  catCount: { fontSize: 13, color: '#888', margin: 0 },
-   grid: { display: 'grid',  gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(230px, 1fr))',gap: 20,},
-};
-
-const hits = products
-  .filter(p => p.badge === 'Хит' || p.badge === 'Скидка')
-  .slice(0, 4);
-
+  const hits = products.filter(p => p.badge === 'Хит' || p.badge === 'Скидка').slice(0, 4);
   return (
     <>
       <div style={s.hero}>
