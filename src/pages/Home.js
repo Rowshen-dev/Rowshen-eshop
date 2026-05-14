@@ -45,19 +45,10 @@ const stats = [
 ];
 
 export default function Home({ addToCart, cart, favorites, toggleFavorite }) {
-  const isMobile = window.innerWidth <= 768;
   const hits = products.filter(p => p.badge === 'Хит' || p.badge === 'Скидка').slice(0, 4);
   return (
     <>
-                <div
-            style={{
-              ...s.hero,
-              ...(isMobile && {
-                padding: '50px 20px',
-                minHeight: 320,
-              }),
-            }}
-          >
+      <div style={s.hero}>
         <div>
           <div style={s.tag}>Новинки 2025 уже в наличии</div>
           <h1 style={s.h1}>Техника без<br />переплат и<br /><span style={s.accent}>лишних слов</span></h1>
@@ -69,15 +60,7 @@ export default function Home({ addToCart, cart, favorites, toggleFavorite }) {
         </div>
       </div>
 
-      <div
-  style={{
-    ...s.statsRow,
-    ...(isMobile && {
-      display: 'grid',
-      gridTemplateColumns: '1fr',
-    }),
-  }}
->
+      <div style={s.statsRow}>
         {stats.map((st, i) => (
           <div key={i} style={{ ...s.statItem, borderRight: i < stats.length - 1 ? '1px solid #2a2a2a' : 'none' }}>
             <div style={s.statIcon}>{st.icon}</div>
@@ -89,23 +72,9 @@ export default function Home({ addToCart, cart, favorites, toggleFavorite }) {
         ))}
       </div>
 
-      <div
-  style={{
-    ...s.section,
-    ...(isMobile && {
-      padding: '40px 20px',
-    }),
-  }}
->
+      <div style={s.section}>
         <div style={s.sectionHead}><h2 style={s.sectionTitle}>Категории</h2></div>
-        <div
-  style={{
-    ...s.catGrid,
-    ...(isMobile && {
-      gridTemplateColumns: '1fr 1fr',
-    }),
-  }}
->
+        <div style={s.catGrid}>
           {cats.map(c => (
             <Link key={c.slug} to={`/catalog?cat=${c.slug}`} style={s.catCard}
               onMouseEnter={e => { e.currentTarget.style.borderColor = '#ff4d00'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
@@ -119,28 +88,12 @@ export default function Home({ addToCart, cart, favorites, toggleFavorite }) {
         </div>
       </div>
 
-      <div
-  style={{
-    ...s.section,
-    paddingTop: 0,
-    ...(isMobile && {
-      padding: '40px 20px',
-      paddingTop: 0,
-    }),
-  }}
->
+      <div style={{ ...s.section, paddingTop: 0 }}>
         <div style={s.sectionHead}>
           <h2 style={s.sectionTitle}>Хиты и скидки</h2>
           <Link to="/catalog" style={s.seeAll}>Все товары <FiArrowRight size={14} /></Link>
         </div>
-        <div
-  style={{
-    ...s.grid,
-    ...(isMobile && {
-      gridTemplateColumns: '1fr',
-    }),
-  }}
->
+        <div style={s.grid}>
           {hits.map(p => <ProductCard key={p.id} product={p} addToCart={addToCart} cart={cart} favorites={favorites} toggleFavorite={toggleFavorite} />)}
         </div>
       </div>
