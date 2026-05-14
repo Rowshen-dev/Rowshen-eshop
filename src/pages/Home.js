@@ -18,7 +18,7 @@ const s = {
   statIcon: { width: 44, height: 44, background: 'rgba(255,77,0,0.08)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
   statNum: { display: 'block', fontSize: 22, fontWeight: 800, fontFamily: "'Space Mono', monospace", color: '#f0f0f0' },
   statLabel: { fontSize: 13, color: '#888' },
-  section: { padding: isMobile ? '40px 20px' : '60px 40px' },
+  section: { padding: '60px 40px' },
   sectionHead: { display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 32 },
   sectionTitle: { fontSize: 26, fontWeight: 800, color: '#f0f0f0', margin: 0, letterSpacing: -0.5 },
   seeAll: { fontSize: 14, color: '#ff4d00', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4 },
@@ -89,7 +89,14 @@ export default function Home({ addToCart, cart, favorites, toggleFavorite }) {
         ))}
       </div>
 
-      <div style={s.section}>
+      <div
+  style={{
+    ...s.section,
+    ...(isMobile && {
+      padding: '40px 20px',
+    }),
+  }}
+>
         <div style={s.sectionHead}><h2 style={s.sectionTitle}>Категории</h2></div>
         <div
   style={{
@@ -112,7 +119,16 @@ export default function Home({ addToCart, cart, favorites, toggleFavorite }) {
         </div>
       </div>
 
-      <div style={{ ...s.section, paddingTop: 0 }}>
+      <div
+  style={{
+    ...s.section,
+    paddingTop: 0,
+    ...(isMobile && {
+      padding: '40px 20px',
+      paddingTop: 0,
+    }),
+  }}
+>
         <div style={s.sectionHead}>
           <h2 style={s.sectionTitle}>Хиты и скидки</h2>
           <Link to="/catalog" style={s.seeAll}>Все товары <FiArrowRight size={14} /></Link>
