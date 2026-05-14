@@ -41,19 +41,23 @@ const s = {
   submitBtn: { padding: '10px 24px', background: '#ff4d00', border: 'none', color: '#fff', borderRadius: 8, fontSize: 14, fontWeight: 700, fontFamily: "'Syne', sans-serif", cursor: 'pointer' },
   starsRow: { display: 'flex', gap: 6, marginBottom: 12 },
   starBtn: (active) => ({ fontSize: 24, cursor: 'pointer', background: 'none', border: 'none', color: active ? '#ffd166' : '#333', padding: 0 }),
+  counter: { display: 'flex', alignItems: 'center', width: '100%', borderRadius: 8, outline: '1px solid #ff4d00', overflow: 'hidden' },
+  counterBtn: { width: 52, height: 52, background: 'transparent', border: 'none', color: '#ff4d00', fontSize: 22, cursor: 'pointer', fontFamily: "'Syne', sans-serif", flexShrink: 0 },
+  counterNum: { flex: 1, textAlign: 'center', color: '#f0f0f0', fontSize: 16, fontWeight: 700, fontFamily: "'Space Mono', monospace" },
 };
 
-export default function ProductPage({ addToCart, cart, compare, toggleCompare }) {
+export default function ProductPage({ addToCart, cart, onQty, compare, toggleCompare }) {
   const { id } = useParams();
   const product = products.find(p => p.id === Number(id));
   const [reviews, setReviews] = useState(initialReviews[Number(id)] || []);
   const [name, setName] = useState('');
   const [text, setText] = useState('');
   const [rating, setRating] = useState(5);
+  const cartItem = cart && cart.find(i => i.id === product.id);
+  const qty = cartItem ? cartItem.qty : 0;
 
   if (!product) return <div style={s.wrap}><p style={{ color: '#888' }}>Товар не найден</p></div>;
 
-  const inCart = cart && cart.some(i => i.id === product.id);
   const inCompare = compare && compare.includes(product.id);
   const disc = product.oldPrice ? Math.round((1 - product.price / product.oldPrice) * 100) : 0;
   const avgRating = reviews.length ? (reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1) : product.rating;
@@ -82,9 +86,20 @@ export default function ProductPage({ addToCart, cart, compare, toggleCompare })
               <div style={s.discount}>−{disc}%</div>
             </>}
           </div>
-          <button style={s.btnBuy(inCart)} onClick={() => addToCart(product)}>
-            {inCart ? '✓ Добавлено в корзину' : 'Добавить в корзину'}
+          
+        {qty === 0 ? (
+          <button style={s.btnBuy(false)} onClick={() => addToCart(product)}>
+            Добавить в корзину
           </button>
+        ) : (
+          <div style={s.counter}>
+            <button style={s.counterBtn} onClick={() => onQty(product.id, qty - 1)}>−</button>
+            <span style={s.counterNum}>{qty}</span>
+            <button style={s.counterBtn} onClick={() => onQty(product.id, qty + 1)}>+</button>
+          </div>
+        )}
+
+
           <button
             style={inCompare ? s.btnCompareActive : s.btnCompare}
             onClick={() => toggleCompare && toggleCompare(product.id)}

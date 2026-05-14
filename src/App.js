@@ -74,7 +74,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home addToCart={addToCart} cart={cart} favorites={favorites} toggleFavorite={toggleFavorite} dark={dark} />} />
           <Route path="/catalog" element={<Catalog addToCart={addToCart} cart={cart} favorites={favorites} toggleFavorite={toggleFavorite} dark={dark} />} />
-          <Route path="/product/:id" element={<ProductPage addToCart={addToCart} cart={cart} compare={compare} toggleCompare={toggleCompare} dark={dark} />} />
+          <Route path="/product/:id" element={<ProductPage addToCart={addToCart} cart={cart} onQty={updateQty} compare={compare} toggleCompare={toggleCompare} dark={dark} />} />
           <Route path="/cart" element={<Cart cart={cart} onRemove={removeFromCart} onQty={updateQty} onOrder={placeOrder} dark={dark} />} />
           <Route path="/checkout" element={<Checkout dark={dark} />} />
           <Route path="/favorites" element={<Favorites favorites={favorites} toggleFavorite={toggleFavorite} addToCart={addToCart} cart={cart} dark={dark} />} />
