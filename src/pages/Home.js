@@ -47,6 +47,9 @@ export default function Home({ addToCart, cart, favorites, toggleFavorite }) {
    grid: { display: 'grid',  gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(230px, 1fr))',gap: 20,},
 };
 
+const hits = products
+  .filter(p => p.badge === 'Хит' || p.badge === 'Скидка')
+  .slice(0, 4);
 
   return (
     <>
