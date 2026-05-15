@@ -6,9 +6,9 @@ import PhoneScene from '../components/PhoneScene';
 import { products } from '../data/products';
 
 const s = {
-  hero: { padding: '60px 40px', background: 'radial-gradient(ellipse 60% 50% at 70% 50%, rgba(255,77,0,0.07) 0%, transparent 70%)', minHeight: 480, display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center', gap: 40 },
+  hero: { padding: '60px 40px', background: 'radial-gradient(ellipse 60% 50% at 70% 50%, rgba(255,77,0,0.07) 0%, transparent 70%)', minHeight: 480, display: 'grid', gridTemplateColumns: window.innerWidth <= 768 ? '1fr' : '1fr 1fr', alignItems: 'center', gap: 40 },
   heroLeft: { maxWidth: 560 },
-  heroRight: { height: 480, width: '100%' },
+  heroRight: { height: window.innerWidth <= 768 ? 320 : 480, width: '100%' },
   tag: { display: 'inline-block', background: 'rgba(255,77,0,0.1)', border: '1px solid rgba(255,77,0,0.3)', color: '#ff4d00', fontSize: 12, fontFamily: "'Space Mono', monospace", letterSpacing: 1, padding: '5px 12px', borderRadius: 4, marginBottom: 20, textTransform: 'uppercase' },
   h1: { fontSize: 'clamp(36px, 5vw, 60px)', fontWeight: 800, lineHeight: 1.05, color: '#f0f0f0', margin: '0 0 20px', letterSpacing: -2 },
   accent: { color: '#ff4d00' },
