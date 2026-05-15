@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiHeart, FiShoppingCart, FiCheck } from 'react-icons/fi';
+import { FiHeart, FiShoppingCart } from 'react-icons/fi';
 import { AiFillHeart } from 'react-icons/ai';
 
 const badgeColor = { 'Хит': '#ff4d00', 'Новинка': '#00c2ff', 'Скидка': '#2a2a2a' };
