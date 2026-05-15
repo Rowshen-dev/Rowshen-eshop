@@ -20,10 +20,10 @@ const stats = [
 ];
 
 export default function Home({ addToCart, cart, favorites, toggleFavorite, dark = true }) {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
 
   useEffect(() => {
-    const handle = () => setIsMobile(window.innerWidth <= 768);
+    const handle = () => setIsMobile(window.innerWidth <= 900);
     window.addEventListener('resize', handle);
     return () => window.removeEventListener('resize', handle);
   }, []);
