@@ -1,15 +1,15 @@
 import React, { Suspense, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiArrowRight, FiTruck, FiShield, FiHeadphones, FiStar } from 'react-icons/fi';
+import { FiArrowRight, FiTruck, FiShield, FiHeadphones, FiStar, FiSmartphone, FiMonitor, FiTablet } from 'react-icons/fi';
 import ProductCard from '../components/ProductCard';
 import PhoneScene from '../components/PhoneScene';
 import { products } from '../data/products';
 
 const cats = [
-  { icon: '📱', name: 'Смартфоны', count: '2 400+ товаров', slug: 'Смартфоны' },
-  { icon: '💻', name: 'Ноутбуки', count: '800+ товаров', slug: 'Ноутбуки' },
-  { icon: '🎧', name: 'Аудио', count: '1 200+ товаров', slug: 'Аудио' },
-  { icon: '📲', name: 'Планшеты', count: '600+ товаров', slug: 'Планшеты' },
+  { icon: <FiSmartphone size={28} color="#ff4d00" />, name: 'Смартфоны', count: '2 400+ товаров', slug: 'Смартфоны' },
+  { icon: <FiMonitor size={28} color="#ff4d00" />, name: 'Ноутбуки', count: '800+ товаров', slug: 'Ноутбуки' },
+  { icon: <FiHeadphones size={28} color="#ff4d00" />, name: 'Аудио', count: '1 200+ товаров', slug: 'Аудио' },
+  { icon: <FiTablet size={28} color="#ff4d00" />, name: 'Планшеты', count: '600+ товаров', slug: 'Планшеты' },
 ];
 
 const stats = [
@@ -126,7 +126,7 @@ export default function Home({ addToCart, cart, favorites, toggleFavorite, dark 
               onMouseEnter={e => { e.currentTarget.style.borderColor = '#ff4d00'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = '#2a2a2a'; e.currentTarget.style.transform = 'none'; }}
             >
-              <span style={{ fontSize: isMobile ? 24 : 32, display: 'block', marginBottom: 8 }}>{c.icon}</span>
+              <div style={{ marginBottom: 12, display: 'flex' }}>{c.icon}</div>
               <h3 style={s.catName}>{c.name}</h3>
               <p style={s.catCount}>{c.count}</p>
             </Link>
