@@ -21,9 +21,9 @@ export default function Footer({ dark = true }) {
         <div>
           <h2 style={s.brandTitle}><span style={s.accent}>ROWSHEN</span> E-SHOP</h2>
           <p style={s.brandText}>Маркетплейс техники с гарантией и быстрой доставкой.</p>
-          <div style={s.contactRow}><FiPhone size={14} /><span>+7 (999) 123-45-67</span></div>
+          <div style={s.contactRow}><FiPhone size={14} /><span>+993 63 695777</span></div>
           <div style={s.contactRow}><FiMail size={14} /><span>info@rowshen.ru</span></div>
-          <div style={s.contactRow}><FiMapPin size={14} /><span>Москва, Россия</span></div>
+          <div style={s.contactRow}><FiMapPin size={14} /><span>Ashgabat, Turkmenistan</span></div>
         </div>
         <div>
           <h4 style={s.colTitle}>Покупателям</h4>
@@ -48,7 +48,7 @@ export default function Footer({ dark = true }) {
         </div>
       </div>
       <div style={s.bottom}>
-        <span>© 2025 Yonekey Cozgut. Все права защищены.</span>
+        <span>© 2025 Rowshen E - SHOP. Все права защищены.</span>
         <span>Политика конфиденциальности</span>
       </div>
     </footer>
