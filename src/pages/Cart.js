@@ -97,7 +97,7 @@ export default function Cart({ cart, onRemove, onQty, onOrder, dark = true }) {
                 <span style={s.qtyNum}>{item.qty}</span>
                 <button style={s.qtyBtn} onClick={() => onQty(item.id, item.qty + 1)}>+</button>
               </div>
-              <div style={s.itemPrice}>{(item.price * item.qty).toLocaleString('ru-RU')} ₽</div>
+              <div style={s.itemPrice}>{(item.price * item.qty).toLocaleString('ru-RU')} TMT</div>
               <button style={s.removeBtn} onClick={() => onRemove(item.id)}>✕</button>
             </div>
           ))}
@@ -131,10 +131,10 @@ export default function Cart({ cart, onRemove, onQty, onOrder, dark = true }) {
           </div>
 
           <div style={{ borderTop: `1px solid ${dark ? '#2a2a2a' : '#eee'}`, paddingTop: 16 }}>
-            <div style={s.sumRow}><span>Товары ({count})</span><span>{total.toLocaleString('ru-RU')} ₽</span></div>
-            {discount > 0 && <div style={s.sumDiscount}><span>Скидка по промокоду</span><span>−{discount.toLocaleString('ru-RU')} ₽</span></div>}
+            <div style={s.sumRow}><span>Товары ({count})</span><span>{total.toLocaleString('ru-RU')} TMT</span></div>
+            {discount > 0 && <div style={s.sumDiscount}><span>Скидка по промокоду</span><span>−{discount.toLocaleString('ru-RU')} TMT</span></div>}
             <div style={s.sumRow}><span>Доставка</span><span style={{ color: '#4caf50' }}>Бесплатно</span></div>
-            <div style={s.sumTotal}><span>Итого</span><span>{finalTotal.toLocaleString('ru-RU')} ₽</span></div>
+            <div style={s.sumTotal}><span>Итого</span><span>{finalTotal.toLocaleString('ru-RU')} TMT</span></div>
           </div>
 
           <button style={s.checkoutBtn} onClick={onOrder}>Оформить заказ</button>

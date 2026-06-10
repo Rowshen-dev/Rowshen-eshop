@@ -23,7 +23,7 @@ const s = {
 };
 
 const fields = [
-  { label: 'Цена', key: 'price', render: (v) => `${v.toLocaleString('ru-RU')} ₽`, isPrice: true },
+  { label: 'Цена', key: 'price', render: (v) => `${v.toLocaleString('ru-RU')} TMT`, isPrice: true },
   { label: 'Категория', key: 'category' },
   { label: 'Рейтинг', key: 'rating', render: (v) => `⭐ ${v}` },
   { label: 'Отзывов', key: 'reviews' },

@@ -70,7 +70,7 @@ export default function Catalog({ addToCart, cart, favorites, toggleFavorite, da
         {/* Sidebar */}
         <div style={s.sidebar}>
           <div style={s.filterBox}>
-            <div style={s.filterTitle}>Цена ₽</div>
+            <div style={s.filterTitle}>Цена TMT</div>
             <div style={s.priceRow}>
               <input style={s.priceInput} placeholder="от" value={minPrice} onChange={e => setMinPrice(e.target.value)} type="number" />
               <span style={s.priceSep}>—</span>

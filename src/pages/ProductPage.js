@@ -80,9 +80,9 @@ export default function ProductPage({ addToCart, cart, onQty, compare, toggleCom
           <h1 style={s.name}>{product.name}</h1>
           <div style={s.stars}>⭐ {avgRating} · {reviews.length} отзывов</div>
           <div style={s.priceRow}>
-            <div style={s.price}>{product.price.toLocaleString('ru-RU')} ₽</div>
+            <div style={s.price}>{product.price.toLocaleString('ru-RU')} TMT</div>
             {product.oldPrice && <>
-              <div style={s.oldPrice}>{product.oldPrice.toLocaleString('ru-RU')} ₽</div>
+              <div style={s.oldPrice}>{product.oldPrice.toLocaleString('ru-RU')} TMT</div>
               <div style={s.discount}>−{disc}%</div>
             </>}
           </div>
