@@ -72,14 +72,14 @@ export default function Orders({ orders = mockOrders }) {
                 <div key={item.id} style={s.item}>
                   <img src={item.image} alt={item.name} style={s.itemImg} />
                   <span style={s.itemName}>{item.name} × {item.qty}</span>
-                  <span style={s.itemPrice}>{(item.price * item.qty).toLocaleString('ru-RU')} TMT</span>
+                  <span style={s.itemPrice}>{(item.price * item.qty).toLocaleString('ru-RU')} tmt</span>
                 </div>
               ))}
             </div>
             <div style={s.divider} />
             <div style={s.total}>
               <span>Итого</span>
-              <span style={s.totalPrice}>{total.toLocaleString('ru-RU')} TMT</span>
+              <span style={s.totalPrice}>{total.toLocaleString('ru-RU')} tmt</span>
             </div>
           </div>
         );

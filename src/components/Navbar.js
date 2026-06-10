@@ -97,7 +97,7 @@ export default function Navbar({ cartCount, favCount, compare, user, onLogout, d
                   onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
                   <img src={p.image} alt={p.name} style={s.dropImg} />
                   <span style={s.dropName}>{p.name}</span>
-                  <span style={s.dropPrice}>{p.price.toLocaleString('ru-RU')} TMT</span>
+                  <span style={s.dropPrice}>{p.price.toLocaleString('ru-RU')} tmt</span>
                 </div>
               ))}
               <div style={{ padding: '10px 14px', textAlign: 'center', fontSize: 13, color: '#ff4d00', cursor: 'pointer' }}
@@ -163,7 +163,7 @@ export default function Navbar({ cartCount, favCount, compare, user, onLogout, d
                 <div key={p.id} style={s.dropItem} onClick={() => handleSuggest(p)}>
                   <img src={p.image} alt={p.name} style={s.dropImg} />
                   <span style={s.dropName}>{p.name}</span>
-                  <span style={s.dropPrice}>{p.price.toLocaleString('ru-RU')} TMT</span>
+                  <span style={s.dropPrice}>{p.price.toLocaleString('ru-RU')} tmt</span>
                 </div>
               ))}
             </div>

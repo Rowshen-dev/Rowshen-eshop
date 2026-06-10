@@ -51,8 +51,8 @@ export default function ProductCard({ product, addToCart, cart, favorites = [], 
             {product.rating} · {product.reviews} отзывов
           </div>
           <div style={s.prices}>
-            <div style={s.price}>{product.price.toLocaleString('ru-RU')} TMT</div>
-            {product.oldPrice && <div style={s.oldPrice}>{product.oldPrice.toLocaleString('ru-RU')} TMT</div>}
+            <div style={s.price}>{product.price.toLocaleString('ru-RU')} tmt</div>
+            {product.oldPrice && <div style={s.oldPrice}>{product.oldPrice.toLocaleString('ru-RU')} tmt</div>}
           </div>
         </div>
       </Link>
